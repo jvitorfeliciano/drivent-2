@@ -37,6 +37,9 @@ async function findById(id: number) {
     where: {
       id,
     },
+    include: {
+      Enrollment: true,
+    },
   });
 }
 
