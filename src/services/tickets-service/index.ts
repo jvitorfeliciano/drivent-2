@@ -10,6 +10,11 @@ async function getTicketsType() {
 }
 
 async function getTicketsAndTicketsType(userId: number) {
+  const enrollment = await enrollmentRepository.findWithAddressByUserId(userId);
+
+  if (!enrollment) {
+    throw notFoundError();
+  }
   const tickets = await ticketsRepository.findTicketandTicketType(userId);
 
   if (!tickets) {

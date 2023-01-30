@@ -16,7 +16,7 @@ function validate(schema: ObjectSchema, type: "body" | "params") {
     const { error } = schema.validate(req[type], {
       abortEarly: false,
     });
-    console.log(req[type]);
+    
     if (!error) {
       next();
     } else {
@@ -25,4 +25,4 @@ function validate(schema: ObjectSchema, type: "body" | "params") {
   };
 }
 
-type ValidationMiddleware = (req: Request, res: Response, next: NextFunction) => void;
+type ValidationMiddleware = (req: Request, res: Response, next: NextFunction)=> void;
